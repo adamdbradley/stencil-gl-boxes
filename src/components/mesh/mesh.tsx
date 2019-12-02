@@ -79,10 +79,15 @@ export class Mesh {
 
     this.defines = Object.keys(this.uniforms).filter(k => this.uniforms[k] != null).map(k => `#define has_${k} true\n`).join("")
 
-    this.material_instance = new Material(this.scene, this.vert, this.frag, this.defines, this.blend, this.depthTest);
-      this.material_instance.set_uniforms(this.uniforms);
+    if (!this.material_instance) {
+      this.material_instance = new Material(this.scene, this.vert, this.frag, this.defines, this.blend, this.depthTest);
+    }
 
+    this.material_instance.set_uniforms(this.uniforms);
+
+    if (!this.geometry_instance) {
       this.geometry_instance = this.geometry.instantiate(this.scene.gl, this.material_instance.program);
+    }
 
     this.mesh.model = this.model;
 

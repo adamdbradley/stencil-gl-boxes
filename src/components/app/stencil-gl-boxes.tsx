@@ -6,7 +6,7 @@ import { Component, h, State, Host } from '@stencil/core';
 })
 export class StencilGLBoxes {
 
-  counts = [100, 200, 500, 1000, 2000, 5000, 10000];
+  counts = [100, 200, 500, 1000, 2000, 5000, 10000, 20000];
   cameraLocation = [0, 0, 3.2];
   light = [0, 0, 3.2];
 

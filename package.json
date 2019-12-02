@@ -1,0 +1,15 @@
+{
+  "name": "stencil-gl-boxes",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Stencil GL Boxes",
+  "scripts": {
+    "build": "stencil build --prerender",
+    "start": "stencil build --serve --watch"
+  },
+  "dependencies": {
+    "@stencil/core": "^1.8.2-0",
+    "@stencil/store": "0.0.2"
+  },
+  "license": "MIT"
+}

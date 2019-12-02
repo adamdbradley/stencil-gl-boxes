@@ -1,4 +1,4 @@
-import { Component, h, State } from '@stencil/core';
+import { Component, h, State, Host } from '@stencil/core';
 
 
 @Component({
@@ -6,11 +6,12 @@ import { Component, h, State } from '@stencil/core';
 })
 export class StencilGLBoxes {
 
-  count = 2000;
+  counts = [100, 200, 500, 1000, 2000, 5000, 10000];
   cameraLocation = [0, 0, 3.2];
   light = [0, 0, 3.2];
 
-  @State() boxes = Array(this.count).fill(0).map(() => [random(), random(), random()])
+  count = this.counts[0];
+  @State() boxes = Array(this.count).fill(0).map(() => [random(), random(), random()]);
 
   loop = () => {
     this.boxes = this.boxes.map(box =>
@@ -27,15 +28,27 @@ export class StencilGLBoxes {
     requestAnimationFrame(this.loop);
   }
 
+  changeCount = (ev: UIEvent) => {
+    this.count = parseInt((ev.target as HTMLSelectElement).value, 10);
+    this.boxes = Array(this.count).fill(0).map(() => [random(), random(), random()]);
+  };
+
   render() {
     return (
-      <gl-scene>
-        <gl-perspective-camera location={this.cameraLocation} />
-        <gl-directional-light direction={this.light} />
-        {this.boxes.map(box => (
-          <gl-mesh rotation={box} />
-        ))}
-      </gl-scene>
+      <Host>
+        <gl-scene>
+          <gl-perspective-camera location={this.cameraLocation} />
+          <gl-directional-light direction={this.light} />
+          {this.boxes.map(box => (
+            <gl-mesh rotation={box} />
+          ))}
+        </gl-scene>
+        <select onChange={this.changeCount}>
+          {this.counts.map(c => (
+            <option value={c}>{c}</option>
+          ))}
+        </select>
+      </Host>
     );
   }
 }

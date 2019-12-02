@@ -41,6 +41,26 @@ A large reason why Stencil's GL Boxes demo is only __12kb__ can be directly attr
 That said, Stencil itself is also quite small, and only generates runtime for what the component is actually using. In this case, the component isn't using much at all, except the VDom renderer and reactive properties.
 
 
+## WebGL and Libraries
+
+Stencil handles this demo quite well, but I don't think that a DOM manipulation library is the right tool for the job. This was simply an experiment and it helped me form some opinions about libraries and WebGL.
+
+WebGL is not about passing one by one data to the GPU like the dom works, but "binding data" into buffers or textures and passing all at once. Instead, direct APIs, such as WebGPU should be used instead (in some computers, it even works by mapping some address space in the GPU):
+![WebGPU Triangles Benchmark](https://webkit.org/wp-content/uploads/WSLTrianglesBenchmark.png)
+
+The approach where a prop changes, then the frameworks schedules an update and asyncronously pass data to the GPU is not how GL was designed to work. Most game engines work by computing in the CPU and little as possible (caching a lot of things), then in a single step, pass data to the GPU.
+
+Within the GPU, you have some options:
+
+- Rastering (triangles: built into the apis)
+- Shading
+- A combinations of both
+
+You want 10 million particules? An iPhone can do that in a shader. Point is to pick the correct tool for the job.
+
+Big thanks to [@manucorporat](https://twitter.com/manucorporat) for helping to point this out.
+
+
 ## Thoughts
 
 If you're building a 3D Game for the web, it's probably best to use [three.js](https://threejs.org/) directly, but that's not what this demo was about. This demo is more about seeing what happens when Stencil is actively re-rendering thousands of nodes while the browser is heavily tasked. The results speak for themselves and are quite encouraging, especially when the end result is a simple web component that's roughly 12kb.

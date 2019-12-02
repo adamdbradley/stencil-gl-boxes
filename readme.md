@@ -26,19 +26,19 @@ Stencil's reactivity is from getters and setters placed on component instances. 
 
 ## VDom
 
-Stencil renderer is an implementation of vdom forked from [Snabbdom](https://github.com/snabbdom/snabbdom). We've made many modifications to it, however, I'd imagine most of the performance comes straight from the awesome work done by the Snabbodm project.
+Stencil's renderer is a VDom implementation forked from [Snabbdom](https://github.com/snabbdom/snabbdom). We've made many modifications to it, however, I'd imagine most of the performance comes straight from the awesome work done by the Snabbodm project.
 
 
 ## Async Rendering Queue
 
-Stencil uses an asyncrous rendering queue that's built-in by default. Developers do not need to adjust their components in order to take advantage of this because it's just how Stencil works. This demo helps show how async rendering assists in preventing jank and maintaining smooth animations.
+Stencil uses an asynchronous rendering queue that's built-in by default. Developers do not need to adjust their components in order to take advantage of this because it's just how Stencil works. This demo helps show how async rendering assists in preventing jank and maintaining smooth animations.
 
 
 ## File Size
 
 A large reason why Stencil's GL Boxes demo is only __12kb__ can be directly attributed to the [@sveltejs/gl](https://github.com/sveltejs/gl) project, and its use of [ES Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) rather than CommonJS.
 
-That said, Stencil itself is also quite small, and only generates runtime for what the component is actually using. In this case, the component isn't using much at all, except the VDom renderer, and reactive getters/setters for its properties.
+That said, Stencil itself is also quite small, and only generates runtime for what the component is actually using. In this case, the component isn't using much at all, except the VDom renderer and reactive properties.
 
 
 ## Thoughts
@@ -47,11 +47,11 @@ If you're building a 3D Game for the web, it's probably best to use [three.js](h
 
 Quick thought about micro-benchmarks: It's widely known that React is "fast enough". Even when compared to the next iteration of React and its async scheduler, Stencil appears to perform quite well along side it.
 
-However, I'd rather not focus too much on this, because again, React is fast enough already, and it appears to be even better with its async scheduler.
+However, I'd rather not focus too much on this, because again, React is fast enough already, and React appears to get even better with its async scheduler.
 
-I'm quite certain Stencil could put a lot more time into removing a few more nanoseconds _"in the name performance"_, but at a certain point we all need to realize that all frameworks are fast now, and micro-benchmarks can sometimes lead to misleading information. Instead of focusing on these nanoseconds, I'd rather see the community, frameworks and libraries focus on reducing filesize, improving startup times, and further embracing web-standards and ESM.
+I'm quite certain Stencil could put a lot more time into removing a few more nanoseconds _"in the name performance"_. However, time and efforts should go to other places since all frameworks are fast now, and micro-benchmarks can sometimes lead to misleading information. Instead of focusing on these nanoseconds, I'd rather see the community, frameworks and libraries focus on reducing filesize, improving startup times, and further embracing web-standards and ESM.
 
-Conclusion:
+**Conclusion:**
 
 - Stencil's VDom is fast.
 - Async-rendering helps Stencil prevent jank.
@@ -71,6 +71,8 @@ Conclusion:
 ## References
 
 - [Stencil](https://stenciljs.com/)
+- [three.js](https://threejs.org/)
+- [Snabbdom](https://github.com/snabbdom/snabbdom)
 - [React Three Fiber](https://github.com/react-spring/react-three-fiber)
 - [Svelte GL Boxes](https://github.com/Rich-Harris/svelte-gl-boxes)
 - [@sveltejs/gl](https://github.com/sveltejs/gl)

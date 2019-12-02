@@ -49,6 +49,7 @@ export class Mesh {
     model_inverse_transpose: null,
     material: null,
     transparent: null,
+    destroy: null,
   };
 
   existing = true;
@@ -108,6 +109,12 @@ export class Mesh {
     }
 
     this.scene.invalidate();
+  }
+
+  disconnectedCallback() {
+    if (this.mesh) {
+      this.mesh.destroy();
+    }
   }
 
 }

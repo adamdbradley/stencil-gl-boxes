@@ -9,7 +9,7 @@ Stencil GL Boxes is a quick port of [React's](https://github.com/react-spring/) 
 
 ## What's the point?
 
-While a vanilla [three.js](https://threejs.org/) example could be written with no framework or reactivity, the purpose of this demo is to show Stencil's ability to handle rendering and re-rendering thousands of components under heavy conditions while keeping the animation smooth. This demo intentionally did not cut corners to improve the demo's performance, but rather uses Stencil features for rendering and reactivity. By default it's generating 100 boxes and rotating each one for every frame. But sure to change the number of boxes ;)
+While a vanilla [three.js](https://threejs.org/) example could be written with no framework or reactivity, the purpose of this demo is to show Stencil's ability to handle rendering and re-rendering thousands of components under heavy conditions while keeping the animation smooth. This demo intentionally did not cut corners to improve the demo's performance, but rather uses Stencil features for rendering and reactivity. By default it's generating 100 boxes and rotating each one for every frame. Be sure to change the number of boxes ;)
 
 I could very well be mistaken and missing something obvious 😬 Please hit me up on [twitter](https://twitter.com/adamdbradley) if that's the case!
 

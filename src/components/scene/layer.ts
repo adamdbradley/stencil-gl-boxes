@@ -30,6 +30,12 @@ export function create_layer(_index, invalidate) {
 			} else {
 				meshes.push(mesh);
 			}
+
+			mesh.destroy = () => {
+				remove_item(meshes, mesh);
+				remove_item(transparent_meshes, mesh);
+				invalidate();
+			}
 		},
 		add_child: (index = child_index++) => {
 			const child_layer = create_layer(index, invalidate);
@@ -44,3 +50,12 @@ export function create_layer(_index, invalidate) {
 	return layer;
 }
 
+function remove_index(array, index) {
+	array[index] = array[array.length - 1];
+	array.pop();
+}
+
+function remove_item(array, item) {
+	const index = array.indexOf(item);
+	if (~index) remove_index(array, index);
+}

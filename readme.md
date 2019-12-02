@@ -9,7 +9,7 @@ Stencil GL Boxes is a quick port of [React's](https://github.com/react-spring/) 
 
 ## What's the point?
 
-While a vanilla [three.js](https://threejs.org/) example could be written with no framework or reactivity, the purpose of this demo is to show Stencil's ability to handle rendering and re-rendering thousands of components under heavy conditions while keeping the animation smooth. This demo intentionally did not cut corners to improve the demo's performance, but rather uses Stencil features for rendering and reactivity.
+While a vanilla [three.js](https://threejs.org/) example could be written with no framework or reactivity, the purpose of this demo is to show Stencil's ability to handle rendering and re-rendering thousands of components under heavy conditions while keeping the animation smooth. This demo intentionally did not cut corners to improve the demo's performance, but rather uses Stencil features for rendering and reactivity. By default it's generating 2,000 boxes and rotating each one every frame.
 
 I could very well be mistaken and missing something obvious 😬 Please hit me up on [twitter](https://twitter.com/adamdbradley) if that's the case!
 
@@ -21,12 +21,12 @@ Many optimizations could be done to this app to improve performance for this use
 
 ## Reactivity
 
-Stencil's reactivity is from getters and setters placed on component instances. Component-level re-rendering occurs only when a value changes. Rendering is not at the application level, but rather individual components will only render if a property changes.
+Stencil's reactivity is from getters and setters placed on component instances, similar to [Vue](https://vuejs.org/). Component-level re-rendering occurs only when a value changes. Rendering is not at the application level, but rather individual components will only render if a property changes. In this demo, a `requestAnimationFrame()` loop is changing the rotation of each box, which then passees that information down to the thousands of boxes.
 
 
 ## VDom
 
-Stencil's renderer is a VDom implementation forked from [Snabbdom](https://github.com/snabbdom/snabbdom). We've made many modifications to it, however, I'd imagine most of the performance comes straight from the awesome work done by the Snabbodm project.
+Stencil's renderer is a VDom implementation forked from [Snabbdom](https://github.com/snabbdom/snabbdom) and the `h()` function is forked from [Preact](https://preactjs.com/). We've made many modifications to them, however, I'd imagine most of the performance comes straight from the awesome work done by the Snabbodm and Preact projects.
 
 
 ## Async Rendering Queue
@@ -96,3 +96,5 @@ I'm quite certain Stencil could put a lot more time into removing a few more nan
 - [React Three Fiber](https://github.com/react-spring/react-three-fiber)
 - [Svelte GL Boxes](https://github.com/Rich-Harris/svelte-gl-boxes)
 - [@sveltejs/gl](https://github.com/sveltejs/gl)
+- [Vue](https://vuejs.org/)
+- [Preact](https://preactjs.com/)

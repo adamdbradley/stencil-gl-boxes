@@ -21,7 +21,7 @@ Many optimizations could be done to this app to improve performance for this use
 
 ## Reactivity
 
-Stencil's reactivity is from getters and setters placed on component instances, similar to [Vue](https://vuejs.org/). Component-level re-rendering occurs only when a value changes. Rendering is not at the application level, but rather individual components will only render if a property changes. In this demo, a `requestAnimationFrame()` loop is changing the rotation of each box, which then passees that information down to the thousands of boxes.
+Stencil's reactivity is from getters and setters placed on component instances, similar to [Vue](https://vuejs.org/). Component-level re-rendering occurs only when a value changes. Rendering is not at the application level, but rather individual components will only render if a property changes. In this demo, a `requestAnimationFrame()` loop is changing the rotation of each box, which then passes that information down to the thousands of boxes.
 
 
 ## VDom

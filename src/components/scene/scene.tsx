@@ -20,9 +20,7 @@ export class Scene {
   canvas: HTMLCanvasElement;
 
 	constructor() {
-		if (Build.isBrowser) {
-			sceneInstance(this);
-		}
+		sceneInstance(this);
 	}
 
   render() {

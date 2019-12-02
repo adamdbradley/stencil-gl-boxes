@@ -15,9 +15,6 @@ export class DirectionalLight {
   multiplied: any;
 
   componentWillLoad() {
-    if (!Build.isBrowser) {
-      return;
-    }
     const scene = sceneState.renderer;
     const { ctm } = sceneState.parent;
 

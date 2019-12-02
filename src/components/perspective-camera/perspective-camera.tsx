@@ -24,9 +24,6 @@ export class PerspectiveCamera {
   };
 
   componentWillLoad() {
-    if (!Build.isBrowser) {
-      return;
-    }
     const { add_camera } = sceneState.renderer
     const { origin } = sceneState.parent;
     const { camera } = this;

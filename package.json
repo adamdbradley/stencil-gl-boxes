@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "Stencil GL Boxes",
   "scripts": {
-    "build": "stencil build --prerender",
+    "build": "stencil build",
     "start": "stencil build --serve --watch"
   },
   "dependencies": {

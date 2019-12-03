@@ -19,5 +19,5 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: url(/favicon.ico) 96% / 15% no-repeat #EEE;
+  background: url(/assets/favicon.ico) 96% / 15% no-repeat #EEE;
 }

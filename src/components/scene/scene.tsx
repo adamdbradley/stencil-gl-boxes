@@ -12,8 +12,8 @@ const num_lights = 8;
   styleUrl: 'scene.css',
 })
 export class Scene {
-  @Prop() background = [1, 1, 1];
-  @Prop() backgroundOpacity = 1;
+  @Prop() background = [255, 255, 255];
+  @Prop() backgroundOpacity = 0;
   @Prop() fog = 0;
   @Prop() pixelRatio: any;
 
@@ -28,8 +28,8 @@ export class Scene {
       <Host>
 				<canvas
 					ref={el => this.canvas = el}
-					width="1000"
-					height="1000"
+					width="1200"
+					height="1200"
 				/>
       </Host>
     );
@@ -41,8 +41,8 @@ function sceneInstance($$self: Scene) {
 	let $width;
 	let $height;
 
-	let { background = [1, 1, 1] } = $$self;
-	let { backgroundOpacity = 1 } = $$self;
+	let { background = [255, 255, 255] } = $$self;
+	let { backgroundOpacity = 0 } = $$self;
 	let { pixelRatio = undefined } = $$self;
 	const use_fog = false;
 	let canvas: HTMLCanvasElement;

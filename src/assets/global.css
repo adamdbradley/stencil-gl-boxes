@@ -3,10 +3,21 @@ body {
 	position: relative;
 	width: 100%;
 	height: 100%;
+	background: black;
 }
 
 select {
 	position: absolute;
-	top: 20px;
-	right: 100px;
+	top: 40px;
+	left: 440px;
+  margin: 0;
+  width: 100px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #CCC;
+  height: 34px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url(/favicon.ico) 96% / 15% no-repeat #EEE;
 }
